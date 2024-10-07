@@ -31,7 +31,7 @@ const adventurer = {
         belongings: ["small hat", "sunglasses"]
      };
     
-//Method for rolling dice
+//Method for Rolling Dice
 
  adventurer.roll = function(mod = 0) {
     const result = Math.floor(Math.random() * 20) + 1 + mod;
@@ -53,3 +53,28 @@ const adventurer = {
  //Rollin
  adventurer.roll(0);
 
+//Recreating Robin as an instance of the character class
+
+const robin = new Warrior("Robin");
+robin.inventory.push("sword", "potion", "artifact");
+
+robin.companion = new Character("Leo");
+robin.companion.type = "Cat";
+
+robin.companion.companion = {
+   name: "Frank",
+   type: "Flea",
+   belongings: ["hat", "sunglasses"]
+};
+//Extending the Character class to create an Adventurer class
+class Warrior extends Character {
+   constructor(name, role) {
+      super(name);
+      this.role = role;
+      this.inventory.push("bedroll", "50 gold coins");
+   }
+   scout() {
+      console.log(`${this.name} is scouting ahead...`);
+      this.roll();
+   }
+};
