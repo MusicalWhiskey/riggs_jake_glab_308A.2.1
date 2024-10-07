@@ -9,4 +9,15 @@ const adventurer = {
         type: "Cat"
     }
     }
-    
+
+
+
+    // Dot Notation
+    console.log(adventurer.inventory);
+    // Bracket Notation
+    console.log(adventurer["inventory"]); 
+
+    console.log(`${adventurer.name}'s Inventory:`);
+    for (let i = 0; i < adventurer.inventory.length; i++) {
+        console.log(`- ${adventurer.inventory[i]}`);
+    }
