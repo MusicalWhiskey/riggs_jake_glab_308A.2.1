@@ -28,7 +28,7 @@ const adventurer = {
     adventurer.companion.companion = {
         name: "Frank",
         type: "Flea",
-        belongings: ["hat", "sunglasses"]
+        belongings: ["small hat", "sunglasses"]
      };
     
 //Method for rolling dice
@@ -49,3 +49,7 @@ const adventurer = {
        console.log(`${this.name} rolled a ${result}.`);
     }
  }
+
+ //Rollin
+ adventurer.roll(0);
+
