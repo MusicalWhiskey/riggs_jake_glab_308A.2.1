@@ -53,7 +53,17 @@ const adventurer = {
        const result = Math.floor(Math.random() * 20) + 1 + mod;
        console.log(`${this.name} rolled a ${result}.`);
     }
- }
+
+    pillage(...Items) {
+      const roll = this.roll();
+      if (roll > 8) {
+         this.inventory.push(...Items);
+         console.log(`${this.name} has pillaged the ${Items}.`);
+      } else {
+         console.log(`${this.name} has failed to pillage the ${Items}.`);
+      }
+   }
+ };
 
 
 
@@ -71,6 +81,9 @@ robin.companion.companion = {
    name: "Frank",
    type: "Flea",
    belongings: ["hat", "sunglasses"]
+
+
+   
 };
 //Extending the Character class to create an Adventurer class
 class Adventurer extends Character {
@@ -84,4 +97,29 @@ class Adventurer extends Character {
       console.log(`${this.name} is scouting ahead...`);
       this.roll();
    }
+   // pillage(...Items) {
+   //    const roll = this.roll();
+   //    if (roll > 8) {
+   //       this.inventory.push(...Items);
+   //       console.log(`${this.name} has pillaged the ${Items}.`);
+   //    } else {
+   //       console.log(`${this.name} has failed to pillage the ${Items}.`);
+   //    }
+   // }
 };
+
+
+class Companion extends Character {
+   constructor(name, type) {
+      super(name);
+      this.type = type;
+      this.inventory.push("magic tonic");
+   }
+
+   attach(adventurer) {
+      adventurer.companion = this;
+   }
+}
+
+console.log(robin);
+// const robin = new Adventurer('Robin', 'Foe');
