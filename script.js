@@ -6,8 +6,13 @@ const adventurer = {
     inventory: ["sword", "potion", "artifact"],
     companion: {
         name: "Leo",
-        type: "Cat"
-    }
+        type: "Cat",
+        companion: {
+         name: "Frank",
+         type: "Flea",
+         inventory: ["small hat", "sunglasses"]
+      }
+     }
     }
 
     // Dot Notation
@@ -24,12 +29,12 @@ const adventurer = {
         console.log(`- ${adventurer.inventory[i]}`);
     }
 
-    //Adding Companion's Companion
-    adventurer.companion.companion = {
-        name: "Frank",
-        type: "Flea",
-        belongings: ["small hat", "sunglasses"]
-     };
+   //  //Adding Companion's Companion
+   //  adventurer.companion.companion = {
+   //      name: "Frank",
+   //      type: "Flea",
+   //      belongings: ["small hat", "sunglasses"]
+   //   };
     
 //Method for Rolling Dice
 
@@ -50,24 +55,26 @@ const adventurer = {
     }
  }
 
+
+
+
  //Rollin
  adventurer.roll(0);
 
 //Recreating Robin as an instance of the character class
 
-const robin = new Warrior("Robin");
+const robin = new Character("Robin");
 robin.inventory.push("sword", "potion", "artifact");
-
 robin.companion = new Character("Leo");
 robin.companion.type = "Cat";
-
 robin.companion.companion = {
    name: "Frank",
    type: "Flea",
    belongings: ["hat", "sunglasses"]
 };
 //Extending the Character class to create an Adventurer class
-class Warrior extends Character {
+class Adventurer extends Character {
+
    constructor(name, role) {
       super(name);
       this.role = role;
